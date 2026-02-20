@@ -108,6 +108,7 @@ Regex edge cases
 Sorting, filtering, and highlighting
 Import/export functionality
 Responsive behavior
+link for the demo video: https://docs.google.com/videos/d/1ACEbJFtR4t-BIW19oXzjwg8LmVleVkXUHQkdDZtG0RQ/edit?usp=sharing
 
 ## Credits
 
