@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Finance Tracker</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<header>
+    <nav>
+        <h1>Student Finance Tracker</h1>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#records">Records</a>
+            <a href="#form">Add/Edit</a>
+            <a href="#settings">Settings</a>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search transactions...">
+                <button id="search-btn">Search</button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <!-- About Section -->
+    <section id="about" class="card-section">
+        <h2>About</h2>
+        <p>Welcome to the Student Finance Tracker! Track your expenses, budgets, and see your financial stats at a glance.</p>
+        <p>Contact: <a href="https://github.com/bmanzi-glitch" target="_blank">GitHub</a>   |   Email: <a href="#">b.manzi@alustudent.com</a></p>
+    </section>
+
+    <!-- Dashboard/Stats Section -->
+    <section id="dashboard" class="card-section">
+        <h2>Dashboard</h2>
+        <div class="dashboard-cards">
+            <div class="card income">
+                <h3>Total Income</h3>
+                <p id="total-income">$0.00</p>
+            </div>
+            <div class="card expense">
+                <h3>Total Expense</h3>
+                <p id="total-expense">$0.00</p>
+            </div>
+            <div class="card balance">
+                <h3>Balance</h3>
+                <p id="balance">$0.00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Records Table + Add/Edit Form -->
+    <section id="records" class="records-section">
+
+        <!-- Records Table -->
+        <div class="records-table card-section">
+            <h2>Transactions</h2>
+            <table id="transactions-table">
+                <thead>
+                    <tr>
+                        <th data-sort="date ">Date</th>
+                        <th data-sort="description">Description</th>
+                        <th data-sort="category">Category</th>
+                        <th data-sort="amount">Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="records-body">
+                    <!-- JS will populate rows -->
+                </tbody>
+            </table>
+        </div>
+            <form id="transaction-form" class="card-section">
+            <h2>Add/Edit Transaction</h2>
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="number" id="amount" placeholder="Amount" required step="0.01"> 
+             <select id="type" required>
+                <option value="">Select Type</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+             </select>
+            <input type="date" id="date" required>
+            <select id="category" required>
+                <option value="">Select Category</option>
+                <option value="Food">Food</option>
+                <option value="Books">Books</option>
+                <option value="Transport">Transport</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Fees">Fees</option>
+                <option value="Other">Other</option>
+            </select>
+            <button type="submit">Save Transaction</button>
+        </form>
+   
+       </section>
+
+
+
+      <!-- Settings Section -->
+    <section id="settings" class="card-section">
+        <h2>Settings</h2>
+
+        <!-- Currency Settings -->
+        <h3>Currency Settings</h3>
+
+        <label for="base-currency">Base Currency</label>
+        <select id="base-currency">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="RWF">RWF (FRw)</option>
+        </select>
+
+        <label for="rate-usd">USD Rate</label>
+        <input type="number" id="rate-usd" step="0.01" placeholder="1.00">
+
+        <label for="rate-eur">EUR Rate</label>
+        <input type="number" id="rate-eur" step="0.01" placeholder="0.92">
+
+        <label for="rate-rwf">RWF Rate</label>
+        <input type="number" id="rate-rwf" step="0.01" placeholder="1300">
+
+        <button id="save-settings">Save Settings</button>
+
+        <hr>
+
+        <div id="settings-status" role="status" aria-live="polite"></div>
+    </section>
+
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Student Finance Tracker | <a href="https://github.com/bmanzi-glitch" target="_blank">GitHub</a></p>
+</footer>
+
+<script type="module" src="scripts/ui.js"></script>
+
+</body>
+</html>

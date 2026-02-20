@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regex Tests</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    body { padding: 2rem; }
+    .pass { color: green; }
+    .fail { color: red; }
+  </style>
+</head>
+<body>
+
+  <h1>Regex Validation Tests</h1>
+  <p>Simple assertion results for assignment milestone M3</p>
+
+  <div id="results"></div>
+
+  <script type="module">
+
+    const resultsDiv = document.getElementById("results");
+
+    function assert(testName, condition) {
+      const p = document.createElement("p");
+      p.textContent = `${testName}: ${condition ? "PASS" : "FAIL"}`;
+      p.className = condition ? "pass" : "fail";
+      resultsDiv.appendChild(p);
+    }
+
+    // =========================
+    // 1️⃣ Description Regex
+    // =========================
+    const descriptionRegex = /^\S(?:.*\S)?$/;
+
+    assert("Description valid", descriptionRegex.test("Lunch at cafeteria"));
+    assert("Description invalid (leading space)", !descriptionRegex.test(" Lunch"));
+    assert("Description invalid (trailing space)", !descriptionRegex.test("Lunch "));
+
+    // =========================
+    // 2️⃣ Numeric Field Regex
+    // =========================
+    const amountRegex = /^(0|[1-9]\d*)(\.\d{1,2})?$/;
+
+    assert("Amount valid integer", amountRegex.test("100"));
+    assert("Amount valid decimal", amountRegex.test("12.50"));
+    assert("Amount invalid letters", !amountRegex.test("12a"));
+    assert("Amount invalid too many decimals", !amountRegex.test("12.345"));
+
+    // =========================
+    // 3️⃣ Date Regex
+    // =========================
+    const dateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+
+    assert("Date valid", dateRegex.test("2025-09-29"));
+    assert("Date invalid month", !dateRegex.test("2025-13-10"));
+    assert("Date invalid day", !dateRegex.test("2025-02-32"));
+
+    // =========================
+    // 4️⃣ Category Regex
+    // =========================
+    const categoryRegex = /^[A-Za-z]+(?:[ -][A-Za-z]+)*$/;
+
+    assert("Category valid single word", categoryRegex.test("Food"));
+    assert("Category valid hyphen", categoryRegex.test("School-Fees"));
+    assert("Category invalid numbers", !categoryRegex.test("Food123"));
+
+    // =========================
+    // 5️⃣ Advanced Regex (Back-reference)
+    // Detect duplicate words
+    // =========================
+    const duplicateWordRegex = /\b(\w+)\s+\1\b/i;
+
+    assert("Duplicate word detected", duplicateWordRegex.test("coffee coffee"));
+    assert("No duplicate word", !duplicateWordRegex.test("coffee tea"));
+
+  </script>
+
+</body>
+</html>

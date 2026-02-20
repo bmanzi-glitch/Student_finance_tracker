@@ -1,0 +1,372 @@
+/* ===============================
+   Reset & Base
+=============================== */
+/* ===============================
+   Fix Sticky Header Scroll Offset
+=============================== */
+html {
+    scroll-behavior: smooth; /* smooth scrolling */
+    scroll-padding-top: 80px; /* equal to your header height */
+}
+
+@media (max-width: 480px) {
+    html {
+        scroll-padding-top: 60px; /* adjust for smaller screens */
+    }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Arial', sans-serif; background: #f4f5f7; color: #1a2d5f; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+
+/* ===============================
+   Header & Nav
+=============================== */
+header {
+    background: #1a2d5f;
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav .nav-links a {
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav .nav-links a:hover { background: #2c6cdf; }
+
+nav .search-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav #search {
+    padding: 8px 12px;
+    border-radius: 25px 0 0 25px;
+    border: none;
+    width: 180px;
+    transition: all 0.3s;
+}
+
+nav #search:focus {
+    outline: none;
+    box-shadow: 0 2px 8px rgba(44,108,223,0.3);
+}
+
+/* Search Button */
+#search-btn {
+    padding: 8px 16px;
+    border-radius: 0 25px 25px 0;
+    border: none;
+    background: #2c6cdf;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#search-btn:hover { background: #1a3bb8; }
+
+/* ===============================
+   Main Layout
+=============================== */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Sections */
+.card-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    scroll-margin-top: 80px; /* Fix for sticky header overlap */
+}
+
+/* ===============================
+   Dashboard Cards
+=============================== */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.card:hover { transform: translateY(-3px); }
+
+.card h3 { font-size: 1rem; margin-bottom: 10px; }
+
+.card.income { background: #d4f8d4; color: #2d7a2d; }
+.card.expense { background: #f8d4d4; color: #7a2d2d; }
+.card.balance { background: #d4e7f8; color: #2d4b7a; }
+
+/* ===============================
+   Records Table
+=============================== */
+.records-section {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.records-table { flex: 2; min-width: 300px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    background: #fff;
+}
+
+th, td { padding: 12px; text-align: left; }
+th { background: #1a2d5f; color: #fff; cursor: pointer; }
+tr:nth-child(even) { background: #f4f5f7; }
+
+/* Buttons */
+button {
+    background: #2c6cdf;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover { background: #1a3bb8; }
+
+.delete-btn {
+    background: #e64a4a;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.delete-btn:hover { background: #b32b2b; }
+
+/* Highlight search results */
+mark { background: #fff59d; color: #1a2d5f; font-weight: bold; }
+
+/* ===============================
+   Add/Edit Form
+=============================== */
+#transaction-form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#transaction-form h2 {
+    font-size: 1.3rem;
+    color: #1a2d5f;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#transaction-form input,
+#transaction-form select {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #cfd8dc;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+#transaction-form input:focus,
+#transaction-form select:focus {
+    outline: none;
+    border-color: #2c6cdf;
+    box-shadow: 0 0 5px rgba(44,108,223,0.3);
+}
+
+#transaction-form button {
+    background: #1b3679;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#transaction-form button:hover { background: #1a3bb8; }
+
+/* ===============================
+   Footer
+=============================== */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #1a2d5f;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+footer a { color: #2c6cdf; transition: color 0.3s; }
+footer a:hover { color: #1a3bb8; }
+
+/* ===============================
+   Responsive
+=============================== */
+@media (max-width: 1024px) {
+    .records-section { flex-direction: column; gap: 20px; }
+    .dashboard-cards { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    nav { flex-direction: column; gap: 10px; }
+}
+
+@media (max-width: 768px) {
+    nav #search { width: 100%; }
+    table, th, td { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 1.3rem; }
+    button, .delete-btn { padding: 8px 10px; font-size: 0.9rem; }
+}
+    /* ===============================
+   Settings Section - Inline Inputs
+=============================== */
+#settings {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+#settings h2 {
+    font-size: 1.4rem;
+    color: #1a2d5f;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#settings h3 {
+    font-size: 1.1rem;
+    color: #1a2d5f;
+    margin-top: 10px;
+}
+
+/* Inline label + input row */
+#settings label {
+    font-weight: 500;
+    color: #1a2d5f;
+    margin-right: 10px;
+    min-width: 120px;
+    display: inline-block;
+    text-align: right;
+}
+
+#settings select,
+#settings input[type="number"] {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #cfd8dc;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+    width: 190px; /* consistent width */
+}
+
+#settings select:focus,
+#settings input[type="number"]:focus {
+    outline: none;
+    border-color: #2c6cdf;
+    box-shadow: 0 0 5px rgba(44,108,223,0.3);
+}
+
+#save-settings {
+    padding: 10px 18px;
+    background: #2c6cdf;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    align-self: flex-start;
+}
+
+#save-settings:hover {
+    background: #1a3bb8;
+}
+
+#settings-status {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #2d4b7a;
+}
+
+/* Flex wrap for small screens */
+#settings > *:not(h2):not(h3) {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ===============================
+   About Section Links
+=============================== */
+#about a[href*="github.com"] {
+    color: #2c6cdf;           /* bright blue for visibility */
+    font-weight: bold;        /* make it bold */
+    transition: color 0.3s, transform 0.2s;
+}
+
+#about a[href*="github.com"]:hover {
+    color: #1a3bb8;           /* darker blue on hover */
+    transform: scale(1.05);   /* slight zoom effect */
+}
