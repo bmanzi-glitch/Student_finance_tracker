@@ -1,4 +1,4 @@
-// search.js: Regex search and highlight
+
 export const compileRegex = (pattern, flags='i') => {
     try { return pattern ? new RegExp(pattern, flags) : null; }
     catch { return null; }

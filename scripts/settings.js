@@ -1,16 +1,16 @@
 const SETTINGS_KEY = 'app:settings';
 
-// Load settings from localStorage
+
 export function loadSettings() {
     return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
 }
 
-// Save settings to localStorage
+
 export function saveSettings(data) {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(data));
 }
 
-// Initialize settings form
+
 export function initSettings() {
     const baseCurrency = document.getElementById('base-currency');
     const rateUSD = document.getElementById('rate-usd');
@@ -21,7 +21,7 @@ export function initSettings() {
 
     const settings = loadSettings();
 
-    // Pre-fill the form if settings exist
+ 
     if (settings.baseCurrency) baseCurrency.value = settings.baseCurrency;
     if (settings.rateUSD) rateUSD.value = settings.rateUSD;
     if (settings.rateEUR) rateEUR.value = settings.rateEUR;

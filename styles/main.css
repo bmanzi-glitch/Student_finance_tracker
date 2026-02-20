@@ -1,17 +1,12 @@
-/* ===============================
-   Reset & Base
-=============================== */
-/* ===============================
-   Fix Sticky Header Scroll Offset
-=============================== */
+
 html {
-    scroll-behavior: smooth; /* smooth scrolling */
-    scroll-padding-top: 80px; /* equal to your header height */
+    scroll-behavior: smooth; 
+    scroll-padding-top: 80px;
 }
 
 @media (max-width: 480px) {
     html {
-        scroll-padding-top: 60px; /* adjust for smaller screens */
+        scroll-padding-top: 60px; 
     }
 }
 
@@ -19,9 +14,7 @@ html {
 body { font-family: 'Arial', sans-serif; background: #f4f5f7; color: #1a2d5f; line-height: 1.6; }
 a { text-decoration: none; color: inherit; }
 
-/* ===============================
-   Header & Nav
-=============================== */
+
 header {
     background: #1a2d5f;
     color: #fff;
@@ -83,7 +76,7 @@ nav #search:focus {
     box-shadow: 0 2px 8px rgba(44,108,223,0.3);
 }
 
-/* Search Button */
+
 #search-btn {
     padding: 8px 16px;
     border-radius: 0 25px 25px 0;
@@ -97,9 +90,7 @@ nav #search:focus {
 
 #search-btn:hover { background: #1a3bb8; }
 
-/* ===============================
-   Main Layout
-=============================== */
+
 main {
     width: 90%;
     max-width: 1200px;
@@ -109,18 +100,16 @@ main {
     gap: 30px;
 }
 
-/* Sections */
+
 .card-section {
     background: #fff;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    scroll-margin-top: 80px; /* Fix for sticky header overlap */
+    scroll-margin-top: 80px; 
 }
 
-/* ===============================
-   Dashboard Cards
-=============================== */
+
 .dashboard-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -143,9 +132,6 @@ main {
 .card.expense { background: #f8d4d4; color: #7a2d2d; }
 .card.balance { background: #d4e7f8; color: #2d4b7a; }
 
-/* ===============================
-   Records Table
-=============================== */
 .records-section {
     display: flex;
     gap: 25px;
@@ -167,7 +153,7 @@ th, td { padding: 12px; text-align: left; }
 th { background: #1a2d5f; color: #fff; cursor: pointer; }
 tr:nth-child(even) { background: #f4f5f7; }
 
-/* Buttons */
+
 button {
     background: #2c6cdf;
     color: #fff;
@@ -190,12 +176,10 @@ button:hover { background: #1a3bb8; }
 
 .delete-btn:hover { background: #b32b2b; }
 
-/* Highlight search results */
+
 mark { background: #fff59d; color: #1a2d5f; font-weight: bold; }
 
-/* ===============================
-   Add/Edit Form
-=============================== */
+
 #transaction-form {
     background: #ffffff;
     padding: 25px;
@@ -242,9 +226,7 @@ mark { background: #fff59d; color: #1a2d5f; font-weight: bold; }
 
 #transaction-form button:hover { background: #1a3bb8; }
 
-/* ===============================
-   Footer
-=============================== */
+
 footer {
     text-align: center;
     padding: 15px 0;
@@ -256,9 +238,7 @@ footer {
 footer a { color: #2c6cdf; transition: color 0.3s; }
 footer a:hover { color: #1a3bb8; }
 
-/* ===============================
-   Responsive
-=============================== */
+
 @media (max-width: 1024px) {
     .records-section { flex-direction: column; gap: 20px; }
     .dashboard-cards { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
@@ -274,9 +254,7 @@ footer a:hover { color: #1a3bb8; }
     header h1 { font-size: 1.3rem; }
     button, .delete-btn { padding: 8px 10px; font-size: 0.9rem; }
 }
-    /* ===============================
-   Settings Section - Inline Inputs
-=============================== */
+
 #settings {
     display: flex;
     flex-direction: column;
@@ -300,7 +278,7 @@ footer a:hover { color: #1a3bb8; }
     margin-top: 10px;
 }
 
-/* Inline label + input row */
+
 #settings label {
     font-weight: 500;
     color: #1a2d5f;
@@ -317,7 +295,7 @@ footer a:hover { color: #1a3bb8; }
     border: 1px solid #cfd8dc;
     font-size: 0.8rem;
     transition: all 0.3s;
-    width: 190px; /* consistent width */
+    width: 190px; 
 }
 
 #settings select:focus,
@@ -349,7 +327,7 @@ footer a:hover { color: #1a3bb8; }
     color: #2d4b7a;
 }
 
-/* Flex wrap for small screens */
+
 #settings > *:not(h2):not(h3) {
     display: flex;
     align-items: center;
@@ -357,16 +335,14 @@ footer a:hover { color: #1a3bb8; }
     gap: 10px;
 }
 
-/* ===============================
-   About Section Links
-=============================== */
+
 #about a[href*="github.com"] {
-    color: #2c6cdf;           /* bright blue for visibility */
-    font-weight: bold;        /* make it bold */
+    color: #2c6cdf;           
+    font-weight: bold;       
     transition: color 0.3s, transform 0.2s;
 }
 
 #about a[href*="github.com"]:hover {
-    color: #1a3bb8;           /* darker blue on hover */
-    transform: scale(1.05);   /* slight zoom effect */
+    color: #1a3bb8;         
+    transform: scale(1.05);   
 }

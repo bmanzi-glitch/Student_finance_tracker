@@ -1,11 +1,9 @@
-// ui.js
+
 import { transactions, addTransaction, updateTransaction, deleteTransaction, getStats } from './state.js';
 import { initSettings } from './settings.js';
 import { loadTransactions, saveTransactions } from './storage.js'; // <-- fixed
 
-// --------------------------------------------------
-// DOM Elements
-// --------------------------------------------------
+
 const form = document.getElementById('transaction-form');
 const tbody = document.getElementById('records-body');
 const totalIncomeEl = document.getElementById('total-income');
@@ -14,36 +12,29 @@ const balanceEl = document.getElementById('balance');
 const searchInput = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
 
-// --------------------------------------------------
-// Load seed.json if localStorage is empty
-// --------------------------------------------------
-// --------------------------------------------------
-// Load seed.json if localStorage is empty
-// --------------------------------------------------
-if (transactions.length === 0) { // use state directly
+
+if (transactions.length === 0) { 
     fetch('seed.json')
         .then(res => res.json())
         .then(data => {
             data.forEach(txn => {
-                // Adjust amount based on type if present
+               
                 if (txn.type === 'expense') {
                     txn.amount = -Math.abs(txn.amount);
                 } else {
                     txn.amount = Math.abs(txn.amount);
                 }
-                addTransaction(txn); // add to state
+                addTransaction(txn); 
             });
-            renderTransactions(transactions); // render in table
+            renderTransactions(transactions); 
         })
         .catch(err => console.error('Error loading seed.json:', err));
 } else {
-    renderTransactions(transactions); // render existing data
+    renderTransactions(transactions);
 }
 
 
-// --------------------------------------------------
-// Functions
-// --------------------------------------------------
+
 function renderTransactions(list) {
     tbody.innerHTML = '';
     list.forEach(txn => {
@@ -70,14 +61,12 @@ function updateStats() {
     balanceEl.textContent = `$${stats.balance.toFixed(2)}`;
 }
 
-// Generate a unique ID
+
 function generateId() {
     return 'txn_' + Math.random().toString(36).substr(2, 9);
 }
 
-// --------------------------------------------------
-// Form submit handler
-// --------------------------------------------------
+
 form.addEventListener('submit', e => {
     e.preventDefault();
     const description = form.description.value.trim();
@@ -104,9 +93,7 @@ form.addEventListener('submit', e => {
     form.reset();
 });
 
-// --------------------------------------------------
-// Edit & Delete buttons
-// --------------------------------------------------
+
 tbody.addEventListener('click', e => {
     const id = e.target.dataset.id;
     if (e.target.classList.contains('delete-btn')) {
@@ -123,14 +110,12 @@ tbody.addEventListener('click', e => {
         form.date.value = txn.date;
         form.category.value = txn.category;
 
-        // Remove old txn so saving again acts as update
+     
         deleteTransaction(id);
     }
 });
 
-// --------------------------------------------------
-// Simple regex search
-// --------------------------------------------------
+
 searchBtn.addEventListener('click', () => {
     const pattern = searchInput.value;
     try {
@@ -142,9 +127,7 @@ searchBtn.addEventListener('click', () => {
     }
 });
 
-// --------------------------------------------------
-// Initial render
-// --------------------------------------------------
+
 renderTransactions(transactions);
 initSettings();
 
